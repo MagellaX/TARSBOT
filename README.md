@@ -80,7 +80,7 @@ echo "ANTHROPIC_API_KEY=sk-ant-..." > docker/.env
 
 docker-compose -f docker/docker-compose.yml up -d
 
-# Open http://localhost:9992
+# Open http://localhost:10992
 ```
 
 
@@ -137,13 +137,13 @@ TARS consists of four integrated components:
 import requests
 
 # Simple task
-response = requests.post('http://localhost:9991/tasks', json={
+response = requests.post('http://localhost:10991/tasks', json={
     'description': 'Download the latest sales report and create a summary'
 })
 
 # Task with file upload
 files = {'files': open('contracts.pdf', 'rb')}
-response = requests.post('http://localhost:9991/tasks',
+response = requests.post('http://localhost:10991/tasks',
     data={'description': 'Review these contracts for important dates'},
     files=files
 )
@@ -153,12 +153,12 @@ response = requests.post('http://localhost:9991/tasks',
 
 ```bash
 # Take a screenshot
-curl -X POST http://localhost:9990/computer-use \
+curl -X POST http://localhost:10990/computer-use \
   -H "Content-Type: application/json" \
   -d '{"action": "screenshot"}'
 
 # Click at specific coordinates
-curl -X POST http://localhost:9990/computer-use \
+curl -X POST http://localhost:10990/computer-use \
   -H "Content-Type: application/json" \
   -d '{"action": "click_mouse", "coordinate": [500, 300]}'
 ```
@@ -237,8 +237,8 @@ Deploy on Kubernetes with Helm:
 
 ```bash
 # Clone the repository
-git clone https://github.com/tars-ai/tars.git
-cd tars
+git clone https://github.com/MagellaX/tars.git
+cd TARSBOT
 
 # Install with Helm
 helm install tars ./helm \
