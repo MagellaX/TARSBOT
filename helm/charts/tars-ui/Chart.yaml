@@ -1,0 +1,14 @@
+apiVersion: v2
+name: tars-ui
+description: A Helm chart for TARS UI service
+type: application
+version: 0.1.0
+appVersion: "edge"
+keywords:
+  - tars
+  - ui
+  - frontend
+maintainers:
+  - name: TARS Team
+sources:
+  - https://github.com/tars-ai/tars

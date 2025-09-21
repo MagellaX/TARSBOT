@@ -1,0 +1,32 @@
+apiVersion: v2
+name: tars
+description: TARS - Complete deployment package
+type: application
+version: 0.1.0
+appVersion: "edge"
+dependencies:
+  - name: postgresql
+    version: 0.1.0
+    repository: file://./charts/postgresql
+    condition: postgresql.enabled
+  - name: tars-desktop
+    version: 0.1.0
+    repository: file://./charts/tars-desktop
+  - name: tars-agent
+    version: 0.1.0
+    repository: file://./charts/tars-agent
+  - name: tars-ui
+    version: 0.1.0
+    repository: file://./charts/tars-ui
+  - name: tars-llm-proxy
+    version: 0.1.0
+    repository: file://./charts/tars-llm-proxy
+    condition: tars-llm-proxy.enabled
+keywords:
+  - tars
+  - automation
+  - remote-desktop
+maintainers:
+  - name: TARS Team
+sources:
+  - https://github.com/tars-ai/tars

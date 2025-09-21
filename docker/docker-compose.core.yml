@@ -1,0 +1,19 @@
+name: tars
+
+services:
+  tars-desktop:
+    # Build from source
+    build:
+      context: ../packages/
+      dockerfile: tarsd/Dockerfile
+    # Use pre-built image
+    image: ghcr.io/tars-ai/tars-desktop:edge
+    shm_size: "2g"
+    container_name: tars-desktop
+    restart: unless-stopped
+    hostname: computer
+    privileged: true
+    ports:
+      - "9990:9990" # tarsd service & noVNC
+    environment:
+      - DISPLAY=:0

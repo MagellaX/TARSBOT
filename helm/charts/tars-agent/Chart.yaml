@@ -1,0 +1,19 @@
+apiVersion: v2
+name: tars-agent
+description: A Helm chart for TARS Agent service
+type: application
+version: 0.1.0
+appVersion: "edge"
+dependencies:
+  - name: postgresql
+    version: "~13.2"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: postgresql.enabled
+keywords:
+  - tars
+  - agent
+  - api
+maintainers:
+  - name: TARS Team
+sources:
+  - https://github.com/tars-ai/tars

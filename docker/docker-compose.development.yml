@@ -1,0 +1,48 @@
+## docker-compose file that spins up a tars-desktop container
+## and a postgres container. tars-ui and tars-agent are not included
+## in this file, and can be run separately using npm, allowing for
+## easier local development.
+
+name: tars
+
+services:
+  tars-desktop:
+    # Build from source
+    build:
+      context: ../packages/
+      dockerfile: tarsd/Dockerfile
+    # Use pre-built image
+    image: ghcr.io/tars-ai/tars-desktop:edge
+    shm_size: "2g"
+    container_name: tars-desktop
+    restart: unless-stopped
+    hostname: computer
+    privileged: true
+    ports:
+      - "9990:9990" # tarsd service & noVNC
+    environment:
+      - DISPLAY=:0
+    networks:
+      - tars-network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: tars-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=tarsdb
+    networks:
+      - tars-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+networks:
+  tars-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

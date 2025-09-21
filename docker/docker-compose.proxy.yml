@@ -1,0 +1,97 @@
+name: tars
+
+services:
+  tars-desktop:
+    # Build from source
+    build:
+      context: ../packages/
+      dockerfile: tarsd/Dockerfile
+    # Use pre-built image
+    image: ghcr.io/tars-ai/tars-desktop:edge
+    shm_size: "2g"
+    container_name: tars-desktop
+    restart: unless-stopped
+    hostname: computer
+    privileged: true
+    ports:
+      - "9990:9990" # tarsd service & noVNC
+    environment:
+      - DISPLAY=:0
+    networks:
+      - tars-network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: tars-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=tarsdb
+    networks:
+      - tars-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  tars-agent:
+    build:
+      context: ../packages/
+      dockerfile: tars-agent/Dockerfile
+    # Use pre-built image
+    image: ghcr.io/tars-ai/tars-agent:edge
+    container_name: tars-agent
+    restart: unless-stopped
+    ports:
+      - "9991:9991"
+    environment:
+      - DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/tarsdb}
+      - TARS_DESKTOP_BASE_URL=${TARS_DESKTOP_BASE_URL:-http://tars-desktop:9990}
+      - TARS_LLM_PROXY_URL=${TARS_LLM_PROXY_URL:-http://tars-llm-proxy:4000}
+    depends_on:
+      - postgres
+    networks:
+      - tars-network
+
+  tars-llm-proxy:
+    build:
+      context: ../packages/
+      dockerfile: tars-llm-proxy/Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    networks:
+      - tars-network
+
+  tars-ui:
+    build:
+      context: ../packages/
+      dockerfile: tars-ui/Dockerfile
+      args:
+        - TARS_AGENT_BASE_URL=${TARS_AGENT_BASE_URL:-http://tars-agent:9991}
+        - TARS_DESKTOP_VNC_URL=${TARS_DESKTOP_VNC_URL:-http://tars-desktop:9990/websockify}
+    # Use pre-built image
+    image: ghcr.io/tars-ai/tars-ui:edge
+    container_name: tars-ui
+    restart: unless-stopped
+    ports:
+      - "9992:9992"
+    environment:
+      - NODE_ENV=production
+      - TARS_AGENT_BASE_URL=${TARS_AGENT_BASE_URL:-http://tars-agent:9991}
+      - TARS_DESKTOP_VNC_URL=${TARS_DESKTOP_VNC_URL:-http://tars-desktop:9990/websockify}
+    depends_on:
+      - tars-agent
+    networks:
+      - tars-network
+
+networks:
+  tars-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

@@ -1,0 +1,15 @@
+apiVersion: v2
+name: tars-desktop
+description: A Helm chart for TARS Desktop service
+type: application
+version: 0.1.0
+appVersion: "edge"
+keywords:
+  - tars
+  - desktop
+  - vnc
+  - remote-desktop
+maintainers:
+  - name: TARS Team
+sources:
+  - https://github.com/tars-ai/tars
