@@ -70,7 +70,7 @@ Just click and add your AI provider API key.
 **Docker Compose**
 
 ```bash
-git clone https://github.com/tars-ai/tars.git
+git clone https://github.com/MagellaX/TARSBOT.git
 cd tars
 
 # Add your AI provider key (choose one)
