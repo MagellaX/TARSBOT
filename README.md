@@ -2,36 +2,19 @@
 
 <img src="docs/images/tars-logo.png" width="500" alt="TARS Logo">
 
-# TARS: Open-Source AI Desktop Agent
+# TARS: AI Desktop Agent
 
-<a href="https://trendshift.io/repositories/14624" target="_blank"><img src="https://trendshift.io/api/badge/repositories/14624" alt="tars-ai%2Ftars | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
 **An AI that has its own computer to complete tasks for you**
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/tars?referralCode=L9lKXQ)
+
 
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://github.com/tars-ai/tars/tree/main/docker)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
-[![Discord](https://img.shields.io/discord/1232768900274585720?color=7289da&label=discord)](https://discord.com/invite/d9ewZkWPTP)
 
-[🌐 Website](https://tars.ai) • [📚 Documentation](https://docs.tars.ai) • [💬 Discord](https://discord.com/invite/d9ewZkWPTP) • [𝕏 Twitter](https://x.com/tars_ai)
-
-<!-- Keep these links. Translations will automatically update with the README. -->
-[Deutsch](https://zdoc.app/de/tars-ai/tars) | 
-[Español](https://zdoc.app/es/tars-ai/tars) | 
-[français](https://zdoc.app/fr/tars-ai/tars) | 
-[日本語](https://zdoc.app/ja/tars-ai/tars) | 
-[한국어](https://zdoc.app/ko/tars-ai/tars) | 
-[Português](https://zdoc.app/pt/tars-ai/tars) | 
-[Русский](https://zdoc.app/ru/tars-ai/tars) | 
-[中文](https://zdoc.app/zh/tars-ai/tars)
 </div>
 
 ---
-
-https://github.com/user-attachments/assets/f271282a-27a3-43f3-9b99-b34007fdd169
-
-https://github.com/user-attachments/assets/72a43cf2-bd87-44c5-a582-e7cbe176f37f
 
 ## What is a Desktop Agent?
 
@@ -82,12 +65,9 @@ TARS isn't limited to web interfaces. It can:
 
 ### Deploy in 2 Minutes
 
-**Option 1: Railway (Easiest)**
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/tars?referralCode=L9lKXQ)
-
 Just click and add your AI provider API key.
 
-**Option 2: Docker Compose**
+**Docker Compose**
 
 ```bash
 git clone https://github.com/tars-ai/tars.git
@@ -103,7 +83,7 @@ docker-compose -f docker/docker-compose.yml up -d
 # Open http://localhost:9992
 ```
 
-[Full deployment guide →](https://docs.tars.ai/quickstart)
+
 
 ## How It Works
 
@@ -183,8 +163,6 @@ curl -X POST http://localhost:9990/computer-use \
   -d '{"action": "click_mouse", "coordinate": [500, 300]}'
 ```
 
-[Full API documentation →](https://docs.tars.ai/api-reference/introduction)
-
 ## Setting Up Your Desktop Agent
 
 ### 1. Deploy TARS
@@ -248,8 +226,6 @@ TARS is built with:
 
 ### Multiple AI Providers
 
-Use any AI provider through our [LiteLLM integration](https://docs.tars.ai/deployment/litellm):
-
 - Azure OpenAI
 - AWS Bedrock
 - Local models via Ollama
@@ -269,28 +245,25 @@ helm install tars ./helm \
   --set agent.env.ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-
 ## Community & Support
 
 - **Discord**: [Join our community](https://discord.com/invite/d9ewZkWPTP) for help and discussions
-- **Documentation**: Comprehensive guides at [docs.tars.ai](https://docs.tars.ai)
 - **GitHub Issues**: Report bugs and request features
 
 ## Contributing
 
-We welcome contributions! Whether it's:
+I welcome contributions! Whether it's:
 
-- 🐛 Bug fixes
-- ✨ New features
-- 📚 Documentation improvements
-- 🌐 Translations
+-  Bug fixes
+-  New features
+-  Documentation improvements
+-  Translations
 
 Please:
 
 1. Check existing [issues](https://github.com/tars-ai/tars/issues) first
 2. Open an issue to discuss major changes
 3. Submit PRs with clear descriptions
-4. Join our [Discord](https://discord.com/invite/d9ewZkWPTP) to discuss ideas
 
 ## License
 
@@ -301,9 +274,5 @@ TARS is open source under the Apache 2.0 license.
 <div align="center">
 
 **Give your AI its own computer. See what it can do.**
-
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/tars?referralCode=L9lKXQ)
-
-<sub>Built by [Tantl Labs](https://tantl.com) and the open source community</sub>
 
 </div>
