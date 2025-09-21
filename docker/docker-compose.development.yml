@@ -19,7 +19,7 @@ services:
     hostname: computer
     privileged: true
     ports:
-      - "9990:9990" # tarsd service & noVNC
+      - "${TARS_DESKTOP_HOST_PORT:-9990}:9990" # tarsd service & noVNC
     environment:
       - DISPLAY=:0
     networks:

@@ -65,6 +65,9 @@ Get your self-hosted AI desktop agent running with just three commands:
   docker compose -f docker/docker-compose.yml up -d 
   # Optional: override the image namespace if you pushed to a different account
   # export TARS_IMAGE_REGISTRY=ghcr.io/your-gh-username
+  # Optional: remap host ports if 9990/9992 are already in use
+  # export TARS_DESKTOP_HOST_PORT=10990
+  # export TARS_UI_HOST_PORT=10992
   ```
 
 This starts all four services:
