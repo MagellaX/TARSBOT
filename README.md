@@ -245,10 +245,7 @@ helm install tars ./helm \
   --set agent.env.ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-## Community & Support
 
-- **Discord**: [Join our community](https://discord.com/invite/d9ewZkWPTP) for help and discussions
-- **GitHub Issues**: Report bugs and request features
 
 ## Contributing
 
