@@ -71,7 +71,7 @@ Just click and add your AI provider API key.
 
 ```bash
 git clone https://github.com/MagellaX/TARSBOT.git
-cd tars
+cd TARSBOT
 
 # Add your AI provider key (choose one)
 echo "ANTHROPIC_API_KEY=sk-ant-..." > docker/.env
