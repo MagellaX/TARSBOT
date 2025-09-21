@@ -7,7 +7,7 @@ services:
       context: ../packages/
       dockerfile: tarsd/Dockerfile
     # Use pre-built image
-    image: ghcr.io/tars-ai/tars-desktop:edge
+    image: ${TARS_IMAGE_REGISTRY:-ghcr.io/magellax}/tars-desktop:edge
     shm_size: "2g"
     container_name: tars-desktop
     restart: unless-stopped
@@ -40,7 +40,7 @@ services:
       context: ../packages/
       dockerfile: tars-agent/Dockerfile
     # Use pre-built image
-    image: ghcr.io/tars-ai/tars-agent:edge
+    image: ${TARS_IMAGE_REGISTRY:-ghcr.io/magellax}/tars-agent:edge
     container_name: tars-agent
     restart: unless-stopped
     ports:
@@ -64,7 +64,7 @@ services:
         - TARS_AGENT_BASE_URL=${TARS_AGENT_BASE_URL:-http://tars-agent:9991}
         - TARS_DESKTOP_VNC_URL=${TARS_DESKTOP_VNC_URL:-http://tars-desktop:9990/websockify}
     # Use pre-built image
-    image: ghcr.io/tars-ai/tars-ui:edge
+    image: ${TARS_IMAGE_REGISTRY:-ghcr.io/magellax}/tars-ui:edge
     container_name: tars-ui
     restart: unless-stopped
     ports:

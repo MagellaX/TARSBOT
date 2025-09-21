@@ -50,8 +50,8 @@ Get your self-hosted AI desktop agent running with just three commands:
 <Steps>
   <Step title="Clone and Configure">
     ```bash 
-    git clone https://github.com/tars-ai/tars.git
-    cd tars
+    git clone https://github.com/MagellaX/TARSBOT.git
+    cd TARSBOT
     
     # Configure your AI provider (choose one):
     echo "ANTHROPIC_API_KEY=your_api_key_here" > docker/.env    # For Claude
@@ -62,7 +62,9 @@ Get your self-hosted AI desktop agent running with just three commands:
 
 <Step title="Start the Agent Stack">
   ```bash 
-  docker-compose -f docker/docker-compose.yml up -d 
+  docker compose -f docker/docker-compose.yml up -d 
+  # Optional: override the image namespace if you pushed to a different account
+  # export TARS_IMAGE_REGISTRY=ghcr.io/your-gh-username
   ```
 
 This starts all four services:
@@ -225,7 +227,7 @@ docker-compose -f docker/docker-compose.yml down
 
 ```bash
 docker-compose -f docker/docker-compose.yml pull
-docker-compose -f docker/docker-compose.yml up -d
+docker compose -f docker/docker-compose.yml up -d
 ```
 
 ### Reset Everything

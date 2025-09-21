@@ -1,5 +1,5 @@
-# Extend the pre-built tars-desktop image
-FROM ghcr.io/tars-ai/tars-desktop:edge
+ARG TARS_IMAGE_REGISTRY=ghcr.io/magellax
+FROM ${TARS_IMAGE_REGISTRY}/tars-desktop:edge
 
 # Add additional packages, applications, or customizations here
 

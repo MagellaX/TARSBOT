@@ -6,8 +6,8 @@ This directory contains Helm charts for deploying TARS on Kubernetes.
 
 ```bash
 # Clone repository
-git clone https://github.com/tars-ai/tars.git
-cd tars
+git clone https://github.com/MagellaX/TARSBOT.git
+cd TARSBOT
 
 # Create values.yaml with your API key(s)
 cat > values.yaml <<EOF

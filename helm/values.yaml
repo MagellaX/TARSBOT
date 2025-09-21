@@ -17,7 +17,7 @@ postgresql:
 tars-desktop:
   fullnameOverride: "tars-desktop"
   image:
-    repository: ghcr.io/tars-ai/tars-desktop
+    repository: ghcr.io/magellax/tars-desktop
     tag: edge
   service:
     type: ClusterIP
@@ -36,7 +36,7 @@ tars-desktop:
 tars-agent:
   fullnameOverride: "tars-agent"
   image:
-    repository: ghcr.io/tars-ai/tars-agent
+    repository: ghcr.io/magellax/tars-agent
     tag: edge
   service:
     type: ClusterIP
@@ -85,7 +85,7 @@ tars-agent:
 tars-ui:
   fullnameOverride: "tars-ui"
   image:
-    repository: ghcr.io/tars-ai/tars-ui
+    repository: ghcr.io/magellax/tars-ui
     tag: edge
   service:
     type: ClusterIP

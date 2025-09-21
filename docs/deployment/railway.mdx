@@ -19,9 +19,9 @@ Railway provides a zero-ops PaaS experience with private networking and per-serv
 
 | Service          | Container Image (edge)                                               | Port | Exposed? | Purpose                              |
 | ---------------- | -------------------------------------------------------------------- | ---- | -------- | ------------------------------------ |
-| **tars-ui**   | `ghcr.io/tars-ai/tars-ui:edge`                                 | 9992 | **Yes**  | Next.js web UI rendered to the world |
-| **tars-agent**| `ghcr.io/tars-ai/tars-agent:edge`                              | 9991 | No       | Task orchestration & LLM calls       |
-| **tars-desktop**| `ghcr.io/tars-ai/tars-desktop:edge`                          | 9990 | No       | Containerised Ubuntu + XFCE desktop  |
+| **tars-ui**   | `ghcr.io/magellax/tars-ui:edge`                                 | 9992 | **Yes**  | Next.js web UI rendered to the world |
+| **tars-agent**| `ghcr.io/magellax/tars-agent:edge`                              | 9991 | No       | Task orchestration & LLM calls       |
+| **tars-desktop**| `ghcr.io/magellax/tars-desktop:edge`                          | 9990 | No       | Containerised Ubuntu + XFCE desktop  |
 | **postgres**     | `postgres:14-alpine`                                                 | 5432 | No       | Persistence layer                    |
 
 All internal traffic flows through Railway’s [private networking](https://docs.railway.com/guides/private-networking). Only `tars-ui` is assigned a public domain.
